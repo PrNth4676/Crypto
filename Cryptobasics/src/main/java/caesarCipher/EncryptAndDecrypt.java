@@ -16,10 +16,24 @@ public class EncryptAndDecrypt {
 		return cipherText;
 	}
 
-	public static void main(String[] args) {
-		EncryptAndDecrypt cipher = new EncryptAndDecrypt();
-		String encryptedMessage = cipher.encrypt("THE SKY IS BLUE", 10);
-		System.out.println("Original Message : 'THE SKY IS BLUE' is encrypted to : " + encryptedMessage);
+	public String decrypt(String ciphertext, int key) {
+		String plaintext = "";
+		ciphertext = ciphertext.toUpperCase();
+		for (int i = 0; i < ciphertext.length(); i++) {
+			char character = ciphertext.charAt(i);
+			int charIndex = ALPHABETS.indexOf(character);
+			//Math.floor is used as modulus of a negative value cannot be calculated
+			int decryptedIndex = Math.floorMod((charIndex - key),ALPHABETS.length());
+			plaintext+= ALPHABETS.charAt(decryptedIndex);
+		}
+		return plaintext;
 	}
 
+	public static void main(String[] args) {
+		EncryptAndDecrypt enAndDe = new EncryptAndDecrypt();
+		String encryptedMessage = enAndDe.encrypt("TOPGUN", 10);
+		System.out.println("Encrypted Message is : " + encryptedMessage);
+		String originalMessage = enAndDe.decrypt(encryptedMessage, 10);
+		System.out.println("Original Message is : " + originalMessage);
+	}
 }
