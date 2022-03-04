@@ -1,6 +1,6 @@
 package caesarCipher;
 
-public class EncryptCeaserCipher {
+public class EncryptAndDecrypt {
 
 	private String ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -17,7 +17,7 @@ public class EncryptCeaserCipher {
 	}
 
 	public static void main(String[] args) {
-		EncryptCeaserCipher cipher = new EncryptCeaserCipher();
+		EncryptAndDecrypt cipher = new EncryptAndDecrypt();
 		String encryptedMessage = cipher.encrypt("THE SKY IS BLUE", 10);
 		System.out.println("Original Message : 'THE SKY IS BLUE' is encrypted to : " + encryptedMessage);
 	}
